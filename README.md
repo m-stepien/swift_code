@@ -36,26 +36,65 @@ A backend API that parses SWIFT (BIC) codes from an Excel file, stores them in a
 - Docker & Docker Compose
 
 ---
+### Set JAVA_HOME
+Make sure `JAVA_HOME` points to your JDK 17 installation.
+
+#### Linux/macOS
+```bash
+export JAVA_HOME=/path/to/jdk-17
+export PATH=$JAVA_HOME/bin:$PATH
+```
+#### Windows
+Run cmd as administrator. Then run this command.
+```cmd
+setx /m JAVA_HOME "C:\Program Files\path\to\jdk-17"
+```
+Restart Command Prompt to reload the environment variables then use the following command to check the it's been added correctly. 
+``` cmd
+echo %JAVA_HOME%
+```
+
+### Clone project
+Clone the project and go to the project directory:
+
+``` bash
+git clone https://github.com/m-stepien/swift_code
+cd swift-code
+```
 
 ### Run with Docker
 Make sure app is built and packaged. In project main directory run:
-```bash
+Linux/macOS
+``` bash
 ./mvnw clean install -DskipTests
+```
+
+Windows
+``` cmd
+mvnw clean install -DskipTests
 ```
 
 Start the app with Docker Compose
 ```bash
 docker-compose up --build
 ```
+
 The app will be running on: http://localhost:8080
 
 ---
 
 ### Run tests
 In project main directory run:
+Linux/macOS
 ```bash
 ./mvnw clean test
 ```
+
+Windows
+```cmd
+mvnw clean test
+```
+
 That will run both unit and integration tests.
 
 ---
